@@ -1,4 +1,4 @@
-package cn.knight.fly.test.qrcode;
+package com.flysnow.palace.basics.others.qrcode;
 
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * @Package cn.knight.fly.test.qrcode
+ * @Package com.flysnow.palace.basics.others.qrcode
  * @Description
  * @Author Fly
  * @Date 2019-11-24 22:04

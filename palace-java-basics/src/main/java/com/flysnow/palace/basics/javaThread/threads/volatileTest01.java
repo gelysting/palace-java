@@ -1,4 +1,4 @@
-package cn.knight.fly.test.threads;
+package com.flysnow.palace.basics.javaThread.threads;
 
 /**
  * @author Fly

@@ -1,4 +1,4 @@
-package cn.knight.fly.test.file;
+package com.flysnow.palace.basics.javaIoNet;
 
 /**
  * @Package cn.knight.fly.test.file

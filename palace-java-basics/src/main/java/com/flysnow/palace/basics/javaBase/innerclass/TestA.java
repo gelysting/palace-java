@@ -1,7 +1,7 @@
-package cn.knight.fly.test.innerclass;
+package com.flysnow.palace.basics.javaBase.innerclass;
 
 /**
- * @Package cn.knight.fly.test.innerclass
+ * @Package com.flysnow.palace.basics.javaBase.innerclass
  * @Description 内部类有一个特征：内部类当中可以调用外部类当中的属性和方法，而外部类却不能调用内部类当中的。
  * @Author Fly
  * @Date 2019-11-05 10:09

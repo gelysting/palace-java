@@ -1,9 +1,9 @@
-package cn.knight.fly.test.clone;
+package com.flysnow.palace.basics.javaBase.clone;
 
 import java.io.Serializable;
 
 /**
- * @Package cn.knight.fly.test.clone
+ * @Package com.flysnow.palace.basics.javaBase.clone
  * @Description 封装序列化和反序列化操作
  * @Author Fly
  * @Date 2019-11-26 14:55

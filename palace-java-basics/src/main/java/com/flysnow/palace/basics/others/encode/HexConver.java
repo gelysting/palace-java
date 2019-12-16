@@ -1,5 +1,4 @@
-package cn.knight.fly.test.xencode;
-
+package com.flysnow.palace.basics.others.encode;
 import java.awt.*;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
@@ -7,7 +6,7 @@ import java.lang.Byte;
 import java.util.Arrays;
 
 /**
- * @Package cn.knight.fly.test.xencode
+ * @Package com.flysnow.palace.basics.others.encode
  * @Description byte[]转二进制字符串,十六进制字符串的相互转换
 
 1.byte的大小为8bits而int的大小为32bits

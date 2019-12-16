@@ -1,10 +1,10 @@
-package cn.knight.fly.test.xencode;
+package com.flysnow.palace.basics.others.encode;
 
 import java.math.BigInteger;
 import java.util.Arrays;
 
 /**
- * @Package cn.knight.fly.test.xencode
+ * @Package com.flysnow.palace.basics.others.encode
  * @Description 二、八、十、十六进制的字符串转换等方法。
  * @Author Fly
  * @Date 2019-11-04 14:47

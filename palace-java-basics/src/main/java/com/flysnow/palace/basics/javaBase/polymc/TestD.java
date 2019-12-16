@@ -1,7 +1,7 @@
-package cn.knight.fly.test.polymc;
+package com.flysnow.palace.basics.javaBase.polymc;
 
 /**
- * @Package cn.knight.fly.test.polymc
+ * @Package com.flysnow.palace.basics.javaBase.polymc
  * @Description
  * @Author Fly
  * @Date 2019-11-05 16:43

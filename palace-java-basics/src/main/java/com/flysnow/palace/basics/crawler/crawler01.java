@@ -1,4 +1,4 @@
-package cn.knight.fly.test.crawler;
+package com.flysnow.palace.basics.crawler;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -23,7 +23,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @Package cn.knight.fly.test.crawler
+ * @Package com.flysnow.palace.basics.crawler
  * @Description
  * @Author Fly
  * @Date 2019-10-31 14:30

@@ -1,7 +1,7 @@
-package cn.knight.fly.test.innerclass;
+package com.flysnow.palace.basics.javaBase.innerclass;
 
 /**
- * @Package cn.knight.fly.test.innerclass
+ * @Package com.flysnow.palace.basics.javaBase.innerclass
  * @Description
  * @Author Fly
  * @Date 2019-11-05 13:39

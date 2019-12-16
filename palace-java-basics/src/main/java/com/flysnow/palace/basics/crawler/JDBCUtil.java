@@ -1,4 +1,4 @@
-package cn.knight.fly.test.crawler;
+package com.flysnow.palace.basics.crawler;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.logging.Logger;
 
 /**
- * @Package cn.knight.fly.test.crawler
+ * @Package com.flysnow.palace.basics.crawler
  * @Description
  * @Author Fly
  * @Date 2019-11-07 10:09

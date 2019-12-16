@@ -1,7 +1,7 @@
-package cn.knight.fly.test.xencode;
+package com.flysnow.palace.basics.others.encode;
 
 /**
- * @Package cn.knight.fly.test.xencode
+ * @Package com.flysnow.palace.basics.others.encode
  * @Description
  * @Author Fly
  * @Date 2019-11-02 1:39

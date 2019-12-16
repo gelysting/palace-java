@@ -1,7 +1,7 @@
-package cn.knight.fly.test.crawler;
+package com.flysnow.palace.basics.crawler;
 
 /**
- * @Package cn.knight.fly.test.crawler
+ * @Package com.flysnow.palace.basics.crawler
  * @Description
  * @Author Fly
  * @Date 2019-11-07 9:42
