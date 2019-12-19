@@ -8,6 +8,10 @@ package com.flysnow.palace.basics.others.encode;
  * @Version V1.0
  */
 
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+
+import java.awt.*;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -34,7 +38,7 @@ public class XorTest {
     }
 
     public static void main(String[] args) throws Exception {
-        String content = "Hello";        // 原文内容
+        String content = "Hello";
 
         /**
          *
@@ -47,7 +51,7 @@ public class XorTest {
         String hexSkey = "10100011";
 
         byte[] bytes = skey.getBytes("UTF-8");
-        System.out.println( "skey=>byte[]：" + skey + "=>" + Arrays.toString(bytes) );
+        System.out.println("skey=>byte[]：" + skey + "=>" + Arrays.toString(bytes));
 
 
         //System.out.println("ikey[" + ikey.toString() + "]=" + String.valueOf(Integer.toHexString(ikey)).toUpperCase()); //十进制数值转为十六进制字符串
@@ -76,52 +80,102 @@ public class XorTest {
 
 
         byte[] contBytes = content.getBytes("UTF-8");
-        System.out.println("Hello->byte[]："+Arrays.toString(contBytes));
+        System.out.println("Hello->byte[]：" + Arrays.toString(contBytes));
 
-        /**********************/
-        byte k = (byte) 0xA3;  // => -93
+        /* ******************** */
+        byte k = (byte) 0xA3;  // => -93 设定异或的加密钥匙
         byte[] resultBytes = new byte[contBytes.length];
         for (int i = 0; i < contBytes.length; i++) {
-            resultBytes[i] =  (byte)(contBytes[i] ^ k ^ (i & 0xFF) ); //增加异或 0xFF 目的是为了将高4位进行降维，使异或结果值不超出byte的范围-128~127
+            resultBytes[i] = (byte) (contBytes[i] ^ k ^ (i & 0xFF)); //增加异或 0xFF 目的是为了将高4位进行降维，使异或结果值不超出byte的范围-128~127
             //contBytes[i]^=k;
         }
         contBytes = resultBytes;
-        System.out.println("1===>"+Arrays.toString(contBytes));
-        System.out.println("1===>"+new String(contBytes));
+        System.out.println("Hello 加密后的字节数组===>" + Arrays.toString(contBytes));
+        System.out.println("Hello 加密后的字节数组 重组装为String字符串===>" + new String(contBytes));
 
         for (int i = 0; i < contBytes.length; i++) {
-            resultBytes[i] =  (byte)(contBytes[i] ^ k ^ (i & 0xFF) );
+            resultBytes[i] = (byte) (contBytes[i] ^ k ^ (i & 0xFF));
             //contBytes[i]^=k;
         }
         contBytes = resultBytes;
-        System.out.println("2===>"+Arrays.toString(contBytes));
-        System.out.println("2===>"+new String(contBytes));
-        /**********************/
+        System.out.println("Hello 加密后的字节数组进行解密获得的字节数组===>" + Arrays.toString(contBytes));
+        System.out.println("Hello 加密后的字节数组进行解密获得的字节数组 重组装为String字符串===>" + new String(contBytes));
+        /* ******************** */
 
+        //由于本项目为聚合项目，因此模块程序所运行路径实际上是父项目的根目录
+        //子模块项目的main下的[resources]资源目录的文件将会在编译时打包到target/classes目录下
+        try {
+            System.out.println("当前路径的标准路径=new File(\"\")=.getAbsolutePath()=" + new File("fe.jpg").getAbsolutePath());
+            System.out.println("当前路径的绝对路径=new File(\"\").getCanonicalPath()=" + new File("fe.jpg").getCanonicalPath());
 
+            System.out.println("通过ClassLoader的getSystemResource方法=" + ClassLoader.getSystemResource("fe.jpg").getPath());
+            System.out.println("通过ClassLoader的getSystemClassLoader的getResource方法=" + ClassLoader.getSystemClassLoader().getResource("fe.jpg").getPath());
+
+            System.out.println("通过本类Class的getResource方法=" + XorTest.class.getResource("").getPath());
+            System.out.println("通过本类的ClassLoader的getResource方法=" + XorTest.class.getClassLoader().getResource("fe.jpg").getPath());
+
+            System.out.println("用户主目录=System.getProperty(\"user.home\")=" + System.getProperty("user.home"));
+            System.out.println("当前程序根目录=System.getProperty(\"user.dir\")=" + System.getProperty("user.dir"));
+
+            File file = null;
+
+            // 使用 ClassPathResource 须引入 springframework spring-core 依赖
+            System.out.println("new ClassPathResource(\"fe.jpg\").getPath()=" + new ClassPathResource("fe.jpg").getPath());
+            Resource resource = new ClassPathResource("fe.jpg");
+            file = resource.getFile();
+
+            // 使用Java类加载器获取资源路径
+            file = new File(ClassLoader.getSystemResource("fe.jpg").toURI());
+
+            //调用SWT的Desktop类打开文件
+            Desktop.getDesktop().open(file);
+
+            System.out.println("xx");
+        } catch (Exception ep) {
+            ep.printStackTrace();
+        }
         //try{
-        //    //File inFile = new File("fe.jpg");
-        //    //File outFile = new File("out.jpg");
-        //
-        //    File inFile = new File("out.jpg");
-        //    File outFile = new File("outback.jpg");
-        //
+        //    String oriFile = new String("fe.jpg");
+        //    String encryptFile = new String("encryptFe.jpg");
+        //    String decodeFile = new String("decodeFe.jpg");
+        //    //////////////////////////////
+        //    File inFile = new File("fe.jpg");
+        //    File outFile = new File("encryptFe.jpg");
         //    DataInputStream dis = new DataInputStream( new FileInputStream(inFile));
         //    DataOutputStream dos = new DataOutputStream( new FileOutputStream(outFile));
-        //    byte[] by = new byte[1024];
+        //    byte[] by = new byte[1024 * 1024]; // 使用byte数组读取方式，缓存1MB数据
         //    int len;
         //    int cnt = 0;
         //    while((len=dis.read(by))!=-1){
         //        for(int i=0;i<len;i++){
-        //            by[i]^=0xa3;
+        //            by[i] ^= 0xa3;
         //        }
         //        System.out.println("cnt=" + ++cnt);
         //        dos.write(by,0,len);
         //    }
+        //    //////////////////////////////
+        //    inFile = new File("encryptFe.jpg");
+        //    outFile = new File("decodeFe.jpg");
+        //    dis = new DataInputStream( new FileInputStream(inFile) );
+        //    dos = new DataOutputStream( new FileOutputStream(outFile) );
+        //    cnt = 0;
+        //    while( (len=dis.read(by)) != -1 ){
+        //        for(int i=0;i<len;i++){
+        //            by[i] ^= 0xA3 ;
+        //        }
+        //        System.out.println("2=cnt="+ ++cnt);
+        //        dos.write(by,0,len);
+        //    }
+        //    //////////////////////////////
+        //
         //    dis.close();
         //    dos.close();
+        //
+        //    //调用SWT的Desktop类打开文件
+        //    Desktop.getDesktop().open( outFile );
+        //
         //}catch(IOException ioe){
-        //    System.out.println(ioe);
+        //    ioe.printStackTrace();
         //}
 
 
