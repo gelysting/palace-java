@@ -49,6 +49,12 @@ public class crawler01 {
             System.out.println("==========>>>>>"+url);
 
             try {
+                //Document document = null;
+                //document.getElementById("result").text();
+                //['BMW','Benz','Audi'];
+                //function isArray(myArray){
+                //    return myArray.constructor.toString().indexOf('Array') > -1;
+                //}
 
                 Document doc = Jsoup.connect(url)
                         //.data("query", "Java")
